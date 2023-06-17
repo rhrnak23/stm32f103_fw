@@ -1,0 +1,5 @@
+terminal을 열고
+
+.\openocd.exe -f .\openocd.cfg
+
+입력
