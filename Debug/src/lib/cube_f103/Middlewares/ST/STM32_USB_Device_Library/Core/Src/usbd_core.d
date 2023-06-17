@@ -35,6 +35,7 @@ src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o: 
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h \
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/common/hw/include/led.h \
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/hw/hw_def.h \
+ C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/common/hw/include/uart.h \
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
@@ -74,6 +75,7 @@ C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Drivers/STM32F1xx
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h:
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/common/hw/include/led.h:
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/hw/hw_def.h:
+C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/common/hw/include/uart.h:
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
 C:/Users/kyung/Documents/GitHub/stm32f103_fw/src/lib/cube_f103/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
