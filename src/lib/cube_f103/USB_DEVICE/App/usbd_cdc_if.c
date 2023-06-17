@@ -23,6 +23,84 @@
 
 /* USER CODE BEGIN INCLUDE */
 
+#define RX_LEN 512
+
+uint32_t rx_in  = 0;
+uint32_t rx_out = 0;
+//uint32_t rx_len = 512; // 버퍼 max
+uint8_t  rx_buf[RX_LEN];  //
+
+//링버퍼 구현
+//수신 버퍼에 얼만큼의 데이터가 있는지 확인
+uint32_t cdcAvailable(void)
+{
+  uint32_t ret;
+
+  ret = (rx_in - rx_out) % RX_LEN; // overflow 처리
+
+  return ret;
+}
+
+
+uint8_t cdcRead(void)
+{
+  uint8_t ret;
+
+  ret = rx_buf[rx_out];
+
+  //하나씩 증가
+  if(rx_out != rx_in)
+  {
+    rx_out = (rx_out + 1) % RX_LEN;
+  }
+
+  return ret;
+}
+
+
+void cdcDataIn(uint8_t rx_data)
+{
+  uint32_t next_rx_in;
+
+  rx_buf[rx_in] = rx_data;
+
+  next_rx_in = (rx_in + 1) % RX_LEN;
+
+  if(next_rx_in != rx_out)
+  {
+    rx_in = next_rx_in;
+  }
+}
+
+uint32_t cdcWrite(uint8_t *p_data, uint32_t length)
+{
+  uint32_t pre_time;
+  uint8_t ret;
+
+  pre_time = millis();
+  while(1)
+  {
+    ret = CDC_Transmit_FS(p_data, length);
+    if(ret == USBD_OK)
+    {
+      return length;
+    }
+    else if(ret == USBD_FAIL)
+    {
+      return 0;
+    }
+
+    // retry후 100ms해보고 안되면 탈출
+    if(millis() - pre_time >= 100)
+    {
+      break;
+    }
+  }
+
+  return 0;
+}
+
+
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -261,6 +339,13 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   /* USER CODE BEGIN 6 */
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+
+  //버퍼에 저장
+  for(int i=0; i<*Len; i++)
+  {
+    cdcDataIn(Buf[i]);
+  }
+
   return (USBD_OK);
   /* USER CODE END 6 */
 }

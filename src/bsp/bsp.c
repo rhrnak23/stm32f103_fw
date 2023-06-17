@@ -26,14 +26,15 @@ void bspInit(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  //usb cdc reset start
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
   delay(100);
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+  //usb cdc reset end
+
 
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-
 
 
 

@@ -1,4 +1,4 @@
 led.c:25:6:ledInit	2
-led.c:50:6:ledOn	2
-led.c:58:6:ledOff	2
-led.c:66:6:ledToggle	2
+led.c:52:6:ledOn	2
+led.c:60:6:ledOff	2
+led.c:68:6:ledToggle	2
