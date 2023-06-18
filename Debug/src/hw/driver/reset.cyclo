@@ -1,0 +1,2 @@
+reset.c:16:6:resetInit	2
+reset.c:34:10:resetGetCount	1

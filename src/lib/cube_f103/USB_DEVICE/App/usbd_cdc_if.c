@@ -38,8 +38,8 @@ uint32_t rx_out = 0;
 //uint32_t rx_len = 512; // Î≤ÑÌçº max
 uint8_t  rx_buf[RX_LEN];  //
 
-//ÎßÅÎ≤ÑÌçº Íµ¨ÌòÑ
-//ÏàòÏã† Î≤ÑÌçºÏóê ÏñºÎßåÌÅºÏùò Îç∞Ïù¥ÌÑ∞Í∞Ä ÏûàÎäîÏßÄ ÌôïÏù∏
+//ÎßÅÎ≤Ñ?çº Íµ¨ÌòÑ
+//?àò?ã† Î≤ÑÌçº?óê ?ñºÎßåÌÅº?ùò ?ç∞?ù¥?Ñ∞Í∞? ?ûà?äîÏß? ?ôï?ù∏
 uint32_t cdcAvailable(void)
 {
   uint32_t ret;
@@ -56,7 +56,7 @@ uint8_t cdcRead(void)
 
   ret = rx_buf[rx_out];
 
-  //ÌïòÎÇòÏî© Ï¶ùÍ∞Ä
+  //?ïò?Çò?î© Ï¶ùÍ?
   if(rx_out != rx_in)
   {
     rx_out = (rx_out + 1) % RX_LEN;
@@ -98,7 +98,7 @@ uint32_t cdcWrite(uint8_t *p_data, uint32_t length)
       return 0;
     }
 
-    // retryÌõÑ 100msÌï¥Î≥¥Í≥† ÏïàÎêòÎ©¥ ÌÉàÏ∂ú
+    // retry?õÑ 100ms?ï¥Î≥¥Í≥† ?ïà?êòÎ©? ?ÉàÏ∂?
     if(millis() - pre_time >= 100)
     {
       break;
@@ -366,7 +366,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
 
-  //Î≤ÑÌçºÏóê Ï†ÄÏû•
+  //Î≤ÑÌçº?óê ???û•
   for(int i=0; i<*Len; i++)
   {
     cdcDataIn(Buf[i]);

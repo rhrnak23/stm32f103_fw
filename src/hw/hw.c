@@ -11,5 +11,10 @@
 void hwInit(void)
 {
   bspInit();
+  rtcInit();// Backup Register(BKUP) 설정하려고 사용
+
+  resetInit();
   ledInit();
+  usbInit();
+  uartInit();
 }
